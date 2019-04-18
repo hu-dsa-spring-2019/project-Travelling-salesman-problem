@@ -139,14 +139,28 @@ def fac(n):
     return n * fac(n-1)
 
 def complexity_function(n): # Note: there is no worst case or best case as the num of iterations is fixed for n
-    complexity = 2 * (n-2) * (n-3) * (n-4) // 6
-    iset = complexity
-    for i in range(4, n-1):# i len sets are counted
-        iset = (n-i-1) * iset // fac(i-1)
-        complexity = complexity + iset#(i-1) * fac(n-2) // (fac(i-2) * fac(n-i-2))
-    complexity = complexity + 2 * n - 4
-    print('for n =', n, 'Overall complexity:', complexity,
-          '\nComplexity of main One_way func:', (n-2)*(n-3)*2**(n-4)+n-2 )
+    t_complexity = 0
+    m_complexity = 0
+    iset = (n-3)*(n-2) # no of len 3 min routes
+    for i in range(3, n):
+        iset = iset // (i-1) * (n-i-1) # no of i+1 len min routes
+        m_complexity = m_complexity + iset
+        t_complexity = t_complexity + iset*(i-1)
+    m_complexity = m_complexity + 1
+    t_complexity = t_complexity + (n-2)
+    print('for one_way_tsp( n =', n,
+          ') Memory complexity:', m_complexity, # (n-2)*2**(n-3) - (n-3)*(n-1)
+          ' Time complexity:', t_complexity )   # (n-2){(n-3)*2**(n-4)-(n-4)}
+    t_complexity = 0
+    m_complexity = 0
+    iset = (n-4)*(n-3) # no of len 3 min routes
+    for i in range(3, n-1):
+        iset = iset // (i-1) * (n-i-2) # no of i+1 len min routes
+        m_complexity = m_complexity + iset
+        t_complexity = t_complexity + iset*(i-1)
+    m_complexity = m_complexity + 1
+    t_complexity = (t_complexity + (n-3))*n*(n-1)//2
+    print('for circular_route_tsp( n =', n, ') Memory complexity:', m_complexity, ' Time complexity:', t_complexity)
 
 points = eval(input())# [(200, 296), (281, 309), (296, 356), (322, 343), (392, 403), (409, 293), (435, 245), (435, 172)]#, (418, 108), (354, 198), (346, 149), (275, 85), (239, 5), (198, 109), (236, 126), (236, 155), (234, 173), (213, 215), (188, 228), (180, 199), (180, 179), (151, 91), (125, 41), (61, 90), (11, 55), (20, 83), (11, 210), (83, 246), (90, 333), (112, 356), (79, 368), (35, 362), (95, 401), (217, 399), (228, 368)]#[(418, 108), (354, 198), (346, 149), (275, 85), (239, 5), (198, 109), (236, 126)]
 
