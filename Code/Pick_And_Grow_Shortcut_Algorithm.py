@@ -40,7 +40,7 @@ def one_way_tsp(start, end, cities, ipath = -1):
                 else:
                     min_route=[end] + route[index][1]
         else:
-            recursive_call = one_way_tsp(start, cities[i], cities[:i] + cities[i+1:], ipath)
+            recursive_call = one_way_tsp(start, cities[i], cities[:i] + cities[i+1:], index)
             ilen = recursive_call[0] + distance[pair(cities[i], end)]
             if ilen < min_len or min_len == -1:
                 min_len = ilen
