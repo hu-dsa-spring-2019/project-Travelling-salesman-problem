@@ -1,0 +1,24 @@
+def path_index(start,end,cities):
+    global n, complexity
+    if len(cities) < 2:
+        return -1
+    #complexity = complexity + len(cities) - 2
+    cities.sort()
+    node = [start,end,complexity]
+    node.sort()
+    if start > end:
+        start, end = end, start
+        
+    count = 0
+    j = 0
+    flag_j = False
+    for item in cities[2:]:
+        if flag_j:
+            while item > node[j]:
+                j += 1
+            flag_j = j!= 4
+        count += 2**(i-j-1)
+        
+    return (start-1 + (end-1)*(end-2)//2,
+            cities[0] - 1 + (cities[1]-1) * (cities[1] -2)//2.
+            count)
