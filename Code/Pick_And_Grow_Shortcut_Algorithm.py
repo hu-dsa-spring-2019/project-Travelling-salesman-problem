@@ -101,7 +101,7 @@ def path_index(start,end,cities):
     global n, complexity
     if len(cities) < 2:
         return -1
-    complexity = complexity + len(cities)
+    #complexity = complexity + len(cities)
     cities.sort()
     node = [start,end,cities[0],cities[1]]
     node.sort()
