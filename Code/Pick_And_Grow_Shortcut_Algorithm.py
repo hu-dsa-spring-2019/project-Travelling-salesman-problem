@@ -138,7 +138,7 @@ def fac(n):
         return 1
     return n * fac(n-1)
 
-def one_way_complexity_function(n): # Note: there is no worst case or best case as the num of iterations is fixed for n
+def complexity_function(n): # Note: there is no worst case or best case as the num of iterations is fixed for n
     complexity = 2 * (n-2) * (n-3) * (n-4) // 6
     iset = complexity
     for i in range(4, n-1):# i len sets are counted
@@ -157,4 +157,4 @@ distance, n, route, complexity = all_dis(points), len(points), {}, 0
 print(circular_route_tsp(list(range(1, 1+len(points)))))
 print('memory complexity:',len(route.keys()))
 print('time complexity:',complexity)
-#one_way_complexity_function(7)
+#complexity_function(7)
