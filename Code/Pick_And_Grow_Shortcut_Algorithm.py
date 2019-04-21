@@ -144,20 +144,6 @@ def one_way_tsp(start, end, cities, ipath = -1):
     route[ipath] = [min_len, min_route]
     return [min_len, min_route, ipath]
 
-def path_index(start,end,cities):# cities are always sorted
-    global n, complexity
-    if cities[cities['start']]=='finish':
-        return -1
-    if start > end:
-        start, end = end, start
-    i = cities[cities[cities['start']]]
-    k = 0
-    while i != 'finish':
-        complexity +=1
-        k += 2**i
-        i = cities[i]
-    return (start-1+(end-1)*(end-2)//2,cities['start']-1+(cities[cities['start']]-1)*(cities[cities['start']]-2)//2,k)
-
 def all_dis(lst):
     ans=[]
     for i in range(1,len(lst)):
@@ -209,3 +195,37 @@ len3_routes = element_routes(nodes)
 print(circular_route_tsp(nodes))
 print('space complexity:',len(route.keys()))
 print('time complexity:',complexity)
+
+def path_index(start,end,cities):
+    global n, complexity
+    if len(cities) < 2:
+        return -1
+    #complexity = complexity + len(cities) - 2
+    cities.sort()
+    node = [start,end,cities[0],cities[1]]
+    node.sort()
+    if start > end:
+        start, end = end, start
+    count=0
+    j = 0
+    flag_j = False
+    for i in cities[2:]:
+        if flag_j:
+            while i > node[j]:
+                j = j + 1
+            flag_j = j != 4
+        count = count + 2**(i-j-1)
+            
+        
+    '''for i in cities[2:]:
+        if i > node[3]:
+            count = count + 2**(i-5)
+        elif i > node[2]:
+            count = count + 2**(i-4)
+        elif i > node[1]:
+            count = count + 2**(i-3)
+        elif i > node[0]:   
+            count = count + 2**(i-2)
+        else:
+            count = count + 2**(i-1)'''
+    return (start-1+(end-1)*(end-2)//2,cities[0]-1+(cities[1]-1)*(cities[1]-2)//2,count)
