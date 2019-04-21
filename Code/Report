@@ -1,2 +1,1 @@
- rfhfhhffh
-fff
+The traveling salesman problem is a classical combinatorial optimization problem. The research on the exact algorithm for traveling salesman problem is significant not only because the research has sufficient practical significance. Until now, researchers have not found a polynomial time algorithm for traveling salesman problem. Among the existing algorithms, brute force algorithm can solve the problem in time O(n2·2n) where n is the number of nodes in the graph. 
