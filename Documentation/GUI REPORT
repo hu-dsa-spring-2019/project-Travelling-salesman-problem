@@ -1,0 +1,7 @@
+Reference: http://negfeedback.blogspot.com/2017/12/a-simple-gui-spreadsheet-in-less-than.html
+
+The code from the link above is modified to better reflect the adjacency matrix method used in our TSP project.
+It is completely adjustable according to specific user inputs
+The distance of a town from itself is represented as zero
+This GUI will work for both directed and undirected graph (although, for the sake of clarity, we will be using an undirected graph in the 
+                                                           actual demonstration)
