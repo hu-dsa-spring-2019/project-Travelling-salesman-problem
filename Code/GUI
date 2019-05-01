@@ -23,9 +23,9 @@ class Cell():
         self.name = cellname(i, j)
         self.formula = '0'
         self.value = 0
-        # Dependencies - must be updated if this cell changes
+        # Dependencies
         self.deps = set()
-        # Requirements - values required for this cell to calculate
+        # Requirements
         self.reqs = set()
 
         self.var = tk.StringVar()
@@ -64,9 +64,7 @@ class Cell():
 
         # Look up the values of our required cells
         reqvalues = {r: self.siblings[r].value for r in currentreqs}
-        # Build an environment with these values and basic math functions
         environment = ChainMap(math.__dict__, reqvalues)
-        # Note that eval is DANGEROUS and should not be used in production
         self.value = eval(self.formula, {}, environment)
 
         self.reqs = currentreqs
@@ -85,7 +83,6 @@ class Cell():
         self.formula = self.var.get()
         self.calculate()
         self.propagate()
-        # If this was after pressing Return, keep showing the formula
         if hasattr(event, 'keysym') and event.keysym == "Return":
             self.var.set(self.formula)
 
