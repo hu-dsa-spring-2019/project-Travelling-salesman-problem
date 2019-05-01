@@ -1,7 +1,17 @@
 Reference: http://negfeedback.blogspot.com/2017/12/a-simple-gui-spreadsheet-in-less-than.html
 
 The code from the link above is modified to better reflect the adjacency matrix method used in our TSP project.
-It is completely adjustable according to specific user inputs
+It is completely adjustable according to specific user inputs, including the number of input towns, etc.
 The distance of a town from itself is represented as zero
 This GUI will work for both directed and undirected graph (although, for the sake of clarity, we will be using an undirected graph in the 
                                                            actual demonstration)
+
+User Instructions:
+
+You can click on cells to edit their formulae and move around with the arrow keys.
+Formulae are evaluated once you press Return or navigate way from a cell. 
+Every cell is evaluated as a Python expression. This means everything is a fomula; this is accomplished through the use of the inbuilt eval function.
+(Eval is a function which evaluates a string as though it were an expression and returns a result. 
+In others, it executes multiple lines of code as though they had been included instead of the line including the eval.)
+The math module is imported by default, so you can use sin and cos and so on. 
+Each cell can access all their siblings directly instead of going through an intermediary.
