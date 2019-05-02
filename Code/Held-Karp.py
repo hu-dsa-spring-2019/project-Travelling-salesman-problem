@@ -91,7 +91,7 @@ def complexity_function(n): # Note: there is no worst case or best case as the n
     s_complexity = s_complexity + 1
     t_complexity = t_complexity + (n-1)**2 + 3*(n-1)
     print('for n =', n,
-          ' Space complexity:', m_complexity,
+          ' Space complexity:', s_complexity,
           ' Time complexity:', t_complexity )
     
 points = eval(input())
