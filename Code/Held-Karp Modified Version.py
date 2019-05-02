@@ -103,7 +103,9 @@ def read_matrix():
 def pair(a,b):
     if b>a:
         return (b-1)*(b-2)//2+a-1
-    return (a-1)*(a-2)//2+b-1
+    return (a-1)*(a-2)//2+b-1 
+
+# removes the current node from the set of nodes
 
 def fac(n):
     if n==0:
