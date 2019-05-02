@@ -125,6 +125,8 @@ def complexity_function(n): # Note: there is no worst case or best case as the n
           ' Time complexity:', t_complexity )
     
 points = eval(input())
+# checks if there's an edge between the current node and the next node
+# If there's an edge, adds the edge weight
 
 #n=16
 '''[( 79,  113), ( 223,  116), ( 78,  257), ( 272,  217), ( 202,  315), ( 407,  256), ( 376,  165), ( 324,  298), ( 111,  237), ( 199,  173), ( 191,  237), ( 305,  148), ( 339,  218), ( 254,  282), ( 227,  211), ( 123,  173)]
